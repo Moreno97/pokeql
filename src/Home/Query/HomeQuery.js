@@ -2,7 +2,7 @@
 
 import gql from "graphql-tag";
 
-const getFirstPokemon = (first: number) => gql`
+const getFirstPokemonQuery = (first: number) => gql`
   query {
     pokemons(first: ${first}) {
       id
@@ -40,4 +40,4 @@ const getFirstPokemon = (first: number) => gql`
   }
 `;
 
-export default getFirstPokemon;
+export default getFirstPokemonQuery;
