@@ -2,16 +2,15 @@
 
 import gql from "graphql-tag";
 
-const getFirstPokemonQuery = (first: number) => gql`
-  query {
-    pokemons(first: ${first}) {
+const POKEMON_QUERY = gql`
+  query Pokemons($first: Int!) {
+    pokemons(first: $first) {
       id
       number
       name
       image
-      types
-      resistant
       classification
+      types
       weaknesses
       attacks {
         special {
@@ -40,4 +39,4 @@ const getFirstPokemonQuery = (first: number) => gql`
   }
 `;
 
-export default getFirstPokemonQuery;
+export default POKEMON_QUERY;

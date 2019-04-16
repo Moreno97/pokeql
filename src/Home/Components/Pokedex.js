@@ -5,7 +5,7 @@ import { Text, StyleSheet, ActivityIndicator, FlatList } from "react-native";
 import { graphql, Query } from "react-apollo";
 
 /** Query **/
-import getFirstPokemonQuery from "../Query/HomeQuery";
+import POKEMON_QUERY from "../Query/HomeQuery";
 
 /* Locals */
 import ListItem from "./ListItem";
@@ -14,7 +14,13 @@ type Props = {};
 class Pokedex extends React.PureComponent<Props> {
   render() {
     return (
-      <Query query={getFirstPokemonQuery(6)}>
+      <Query
+        notifyOnNetworkStatusChange
+        query={POKEMON_QUERY}
+        variables={{
+          first: 10
+        }}
+      >
         {({ loading, error, data, fetchMore }) => {
           if (error) {
             return <Text style={styles.text}>{error}</Text>;

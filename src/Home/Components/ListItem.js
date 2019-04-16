@@ -5,7 +5,8 @@ import { Text, View, StyleSheet, ImageBackground } from "react-native";
 import { Card, Chip, IconButton } from "react-native-paper";
 
 type Props = {
-  number: number,
+  id: string,
+  number: string,
   name: string,
   image: string,
   types: Array<string>,
