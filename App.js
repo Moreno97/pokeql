@@ -6,19 +6,24 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import { ApolloProvider } from "react-apollo";
 
 /** API **/
-import CLIENT from './src/API';
+import CLIENT from "./src/API";
 
 /** UI Components **/
 import Pokedex from "./src/Home/Components/Pokedex";
+import Details from "./src/Home/Components/Details";
 
 type Props = {};
 class Home extends React.PureComponent<Props> {
+  _onPressDetail = (item: Object) => {
+    this.props.navigation.navigate("Detail", { item: item });
+  };
+
   render() {
     return (
       <ApolloProvider client={CLIENT}>
         <View style={styles.container}>
           <StatusBar barStyle="light-content" />
-          <Pokedex />
+          <Pokedex onPressDetail={this._onPressDetail} />
         </View>
       </ApolloProvider>
     );
@@ -28,9 +33,7 @@ class Home extends React.PureComponent<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000000",
-    paddingHorizontal: 10,
-    paddingTop: 10
+    backgroundColor: "#000000"
   },
   text: {
     color: "white",
@@ -43,15 +46,23 @@ export default createAppContainer(
     Home: {
       screen: Home,
       navigationOptions: {
-        title: "PokéQL",
-        headerStyle: {
-          backgroundColor: "#F4511E"
-        },
-        headerTintColor: "#FFFFFF",
-        headerTitleStyle: {
-          fontWeight: "bold"
-        }
+        title: "PokédexQL"
       }
+    },
+    Detail: {
+      screen: Details,
+    }
+  }, {
+    defaultNavigationOptions: {
+      title: "PokédexQL",
+      headerStyle: {
+        backgroundColor: "#F4511E"
+      },
+      headerTintColor: "#FFFFFF",
+      headerTitleStyle: {
+        fontWeight: "bold"
+      },
+      headerBackTitle: null
     }
   })
 );

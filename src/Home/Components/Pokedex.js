@@ -1,8 +1,8 @@
 /* @flow */
 
 import React from "react";
-import { Text, StyleSheet, ActivityIndicator, FlatList } from "react-native";
-import { graphql, Query } from "react-apollo";
+import { Text, StyleSheet, RefreshControl, FlatList } from "react-native";
+import { Query } from "react-apollo";
 
 /** Query **/
 import POKEMON_QUERY from "../Query/HomeQuery";
@@ -10,23 +10,22 @@ import POKEMON_QUERY from "../Query/HomeQuery";
 /* Locals */
 import ListItem from "./ListItem";
 
-type Props = {};
+type Props = {
+  onPressDetail: Function
+};
+
 class Pokedex extends React.PureComponent<Props> {
   render() {
     return (
       <Query
-        notifyOnNetworkStatusChange
         query={POKEMON_QUERY}
         variables={{
-          first: 10
+          first: 5
         }}
       >
         {({ loading, error, data, fetchMore }) => {
           if (error) {
             return <Text style={styles.text}>{error}</Text>;
-          }
-          if (loading) {
-            return <ActivityIndicator color="#FFFFFF" size="large" />;
           }
           return (
             <FlatList
@@ -39,14 +38,33 @@ class Pokedex extends React.PureComponent<Props> {
                   image={item.image}
                   types={item.types}
                   onPress={() => {
-                    // TODO: Navigate to screen
+                    this.props.onPressDetail(item);
                   }}
                 />
               )}
+              refreshControl={
+                <RefreshControl
+                  refreshing={loading}
+                  title="Updating..."
+                  titleColor="#FFFFFF"
+                  tintColor="#FFFFFF"
+                />
+              }
               keyExtractor={(item, index) => index.toString()}
+              style={styles.container}
               onEndReachedThreshold={1}
               onEndReached={() => {
-                // TODO: Fetch more items
+                fetchMore({
+                  variables: {
+                    first: data.pokemons.length + 5 // Fetch 5 more items to the initial data
+                  },
+                  updateQuery: (previousResult, { fetchMoreResult }) => {
+                    const newResults = fetchMoreResult.pokemons;
+                    return {
+                      pokemons: [...newResults]
+                    };
+                  }
+                });
               }}
             />
           );
@@ -58,8 +76,7 @@ class Pokedex extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#000000"
+    padding: 10
   }
 });
 

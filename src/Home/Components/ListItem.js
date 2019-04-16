@@ -45,7 +45,7 @@ const ListItem = (props: Props) => (
 const styles = StyleSheet.create({
   card: {
     marginBottom: 10,
-    height: 180
+    height: 160
   },
   row: {
     flexDirection: "row"
