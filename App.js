@@ -2,6 +2,7 @@
 
 import React from "react";
 import { View, StyleSheet, StatusBar } from "react-native";
+import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { ApolloProvider } from "react-apollo";
 
@@ -13,19 +14,33 @@ import Pokedex from "./src/Home/Components/Pokedex";
 import Details from "./src/Home/Components/Details";
 
 type Props = {};
+
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors
+  },
+  fonts: {
+    regular: "Orbitron-Regular",
+    medium: "Orbitron-Medium"
+  }
+};
+
 class Home extends React.PureComponent<Props> {
   _onPressDetail = (item: Object) => {
-    this.props.navigation.navigate("Detail", { item: item });
+    this.props.navigation.navigate("Detail", { item });
   };
 
   render() {
     return (
-      <ApolloProvider client={CLIENT}>
-        <View style={styles.container}>
-          <StatusBar barStyle="light-content" />
-          <Pokedex onPressDetail={this._onPressDetail} />
-        </View>
-      </ApolloProvider>
+      <PaperProvider theme={theme}>
+        <ApolloProvider client={CLIENT}>
+          <View style={styles.container}>
+            <StatusBar barStyle="light-content" />
+            <Pokedex onPressDetail={this._onPressDetail} />
+          </View>
+        </ApolloProvider>
+      </PaperProvider>
     );
   }
 }
@@ -42,27 +57,32 @@ const styles = StyleSheet.create({
 });
 
 export default createAppContainer(
-  createStackNavigator({
-    Home: {
-      screen: Home,
-      navigationOptions: {
-        title: "PokédexQL"
+  createStackNavigator(
+    {
+      Home: {
+        screen: Home,
+        navigationOptions: {
+          title: "PokédexQL"
+        }
+      },
+      Detail: {
+        screen: Details,
+        navigationOptions: {
+          header: null
+        }
       }
     },
-    Detail: {
-      screen: Details,
+    {
+      defaultNavigationOptions: {
+        title: "PokédexQL",
+        headerStyle: {
+          backgroundColor: "#F4511E"
+        },
+        headerTintColor: "#FFFFFF",
+        headerTitleStyle: {
+          fontWeight: "bold"
+        }
+      }
     }
-  }, {
-    defaultNavigationOptions: {
-      title: "PokédexQL",
-      headerStyle: {
-        backgroundColor: "#F4511E"
-      },
-      headerTintColor: "#FFFFFF",
-      headerTitleStyle: {
-        fontWeight: "bold"
-      },
-      headerBackTitle: null
-    }
-  })
+  )
 );

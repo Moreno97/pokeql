@@ -12,6 +12,14 @@ const POKEMON_QUERY = gql`
       classification
       types
       weaknesses
+      weight {
+        minimum
+        maximum
+      }
+      height {
+        minimum
+        maximum
+      }
       attacks {
         special {
           name

@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -59,6 +58,10 @@
 		EB5F7194439C4BFB9880E8ED /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E05D95E2ED4949F0AF8D59E9 /* Octicons.ttf */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		F6C9EB3F635540DBA2CB384D /* Orbitron-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 33A6126F8C054FBD8B2E17CB /* Orbitron-Black.ttf */; };
+		F96E551D048E4875A6C1083F /* Orbitron-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B710B349434638ADB9F01B /* Orbitron-Bold.ttf */; };
+		A1346C68338B4CBD9246B007 /* Orbitron-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC3CA95C5DD9466D8CD20CF7 /* Orbitron-Medium.ttf */; };
+		795EB199FA6F41BDB1D6D248 /* Orbitron-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81173B043D1D471AB498030C /* Orbitron-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -415,6 +418,10 @@
 		F4C09B98A244458EA981764B /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		F695D253A569400289D068D8 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		F8ED09B928E044A6BAF38228 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		33A6126F8C054FBD8B2E17CB /* Orbitron-Black.ttf */ = {isa = PBXFileReference; name = "Orbitron-Black.ttf"; path = "../assets/fonts/Orbitron-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D0B710B349434638ADB9F01B /* Orbitron-Bold.ttf */ = {isa = PBXFileReference; name = "Orbitron-Bold.ttf"; path = "../assets/fonts/Orbitron-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CC3CA95C5DD9466D8CD20CF7 /* Orbitron-Medium.ttf */ = {isa = PBXFileReference; name = "Orbitron-Medium.ttf"; path = "../assets/fonts/Orbitron-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		81173B043D1D471AB498030C /* Orbitron-Regular.ttf */ = {isa = PBXFileReference; name = "Orbitron-Regular.ttf"; path = "../assets/fonts/Orbitron-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -725,6 +732,10 @@
 				E05D95E2ED4949F0AF8D59E9 /* Octicons.ttf */,
 				D5F1B9B14BF2473A97E7D8C8 /* SimpleLineIcons.ttf */,
 				C44C574279B04CECB010F6FF /* Zocial.ttf */,
+				33A6126F8C054FBD8B2E17CB /* Orbitron-Black.ttf */,
+				D0B710B349434638ADB9F01B /* Orbitron-Bold.ttf */,
+				CC3CA95C5DD9466D8CD20CF7 /* Orbitron-Medium.ttf */,
+				81173B043D1D471AB498030C /* Orbitron-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1235,6 +1246,10 @@
 				EB5F7194439C4BFB9880E8ED /* Octicons.ttf in Resources */,
 				EA6966294BC04BC2861963B5 /* SimpleLineIcons.ttf in Resources */,
 				0DCF3F16F8ED4E3787C143E4 /* Zocial.ttf in Resources */,
+				F6C9EB3F635540DBA2CB384D /* Orbitron-Black.ttf in Resources */,
+				F96E551D048E4875A6C1083F /* Orbitron-Bold.ttf in Resources */,
+				A1346C68338B4CBD9246B007 /* Orbitron-Medium.ttf in Resources */,
+				795EB199FA6F41BDB1D6D248 /* Orbitron-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

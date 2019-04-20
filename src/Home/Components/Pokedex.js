@@ -48,6 +48,19 @@ class Pokedex extends React.PureComponent<Props> {
                   title="Updating..."
                   titleColor="#FFFFFF"
                   tintColor="#FFFFFF"
+                  onRefresh={() => {
+                    fetchMore({
+                      variables: {
+                        first: data.pokemons.length
+                      },
+                      updateQuery: (previousResult, { fetchMoreResult }) => {
+                        const newResults = fetchMoreResult.pokemons;
+                        return {
+                          pokemons: [...newResults]
+                        };
+                      }
+                    });
+                  }}
                 />
               }
               keyExtractor={(item, index) => index.toString()}

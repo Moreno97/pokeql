@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Text, View, StyleSheet, ImageBackground } from "react-native";
-import { Card, Chip, IconButton } from "react-native-paper";
+import { Headline, Card, Chip, IconButton } from "react-native-paper";
 
 type Props = {
   id: string,
@@ -23,10 +23,12 @@ const ListItem = (props: Props) => (
       style={styles.image}
     >
       <View style={styles.container}>
-        <Text style={styles.name}>{`#${props.number} ${props.name}`}</Text>
+        <Headline style={styles.name}>
+          {`#${props.number} ${props.name}`}
+        </Headline>
         <View style={styles.row}>
           {props.types.map((type: string) => (
-            <Chip key={type} disabled style={styles.chip}>
+            <Chip key={type} style={styles.chip} mode="outlined" disabled>
               {type}
             </Chip>
           ))}
@@ -60,11 +62,7 @@ const styles = StyleSheet.create({
   },
   name: {
     color: "#FFFFFF",
-    fontSize: 20,
-    fontWeight: "600",
-    marginTop: 5,
-    marginBottom: 5,
-    fontFamily: "Avenir-Book"
+    fontSize: 20
   },
   container: {
     position: "absolute",
