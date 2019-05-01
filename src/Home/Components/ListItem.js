@@ -10,7 +10,7 @@ type Props = {
   name: string,
   image: string,
   types: Array<string>,
-  onPress: Function
+  onPress: Function,
 };
 
 const ListItem = (props: Props) => (
@@ -18,14 +18,11 @@ const ListItem = (props: Props) => (
     <ImageBackground
       resizeMode="contain"
       source={{
-        uri: props.image
+        uri: props.image,
       }}
-      style={styles.image}
-    >
+      style={styles.image}>
       <View style={styles.container}>
-        <Headline style={styles.name}>
-          {`#${props.number} ${props.name}`}
-        </Headline>
+        <Headline style={styles.name}>{`#${props.number} ${props.name}`}</Headline>
         <View style={styles.row}>
           {props.types.map((type: string) => (
             <Chip key={type} style={styles.chip} mode="outlined" disabled>
@@ -47,22 +44,22 @@ const ListItem = (props: Props) => (
 const styles = StyleSheet.create({
   card: {
     marginBottom: 10,
-    height: 160
+    height: 160,
   },
   row: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   chip: {
     marginRight: 5,
-    marginBottom: 5
+    marginBottom: 5,
   },
   image: {
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   name: {
     color: "#FFFFFF",
-    fontSize: 20
+    fontSize: 20,
   },
   container: {
     position: "absolute",
@@ -70,13 +67,13 @@ const styles = StyleSheet.create({
     left: 0,
     width: "100%",
     backgroundColor: "rgba(0, 0, 0, 0.54)",
-    paddingLeft: 16
+    paddingLeft: 16,
   },
   icon: {
     position: "absolute",
     right: 5,
-    top: 15
-  }
+    top: 15,
+  },
 });
 
 export default ListItem;

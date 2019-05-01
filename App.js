@@ -6,24 +6,26 @@ import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { ApolloProvider } from "react-apollo";
 
-/** API **/
+/* API */
 import CLIENT from "./src/API";
 
-/** UI Components **/
+/* UI Components */
 import Pokedex from "./src/Home/Components/Pokedex";
 import Details from "./src/Home/Components/Details";
 
-type Props = {};
+type Props = {
+  navigation: Object,
+};
 
 const theme = {
   ...DefaultTheme,
   colors: {
-    ...DefaultTheme.colors
+    ...DefaultTheme.colors,
   },
   fonts: {
     regular: "Orbitron-Regular",
-    medium: "Orbitron-Medium"
-  }
+    medium: "Orbitron-Medium",
+  },
 };
 
 class Home extends React.PureComponent<Props> {
@@ -36,7 +38,7 @@ class Home extends React.PureComponent<Props> {
       <PaperProvider theme={theme}>
         <ApolloProvider client={CLIENT}>
           <View style={styles.container}>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="light-content" backgroundColor="#DB7424" />
             <Pokedex onPressDetail={this._onPressDetail} />
           </View>
         </ApolloProvider>
@@ -48,12 +50,12 @@ class Home extends React.PureComponent<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#000000"
+    backgroundColor: "#000000",
   },
   text: {
     color: "white",
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });
 
 export default createAppContainer(
@@ -62,27 +64,29 @@ export default createAppContainer(
       Home: {
         screen: Home,
         navigationOptions: {
-          title: "PokédexQL"
-        }
+          title: "PokédexQL",
+        },
       },
       Detail: {
         screen: Details,
         navigationOptions: {
-          header: null
-        }
-      }
+          header: null,
+        },
+      },
     },
     {
       defaultNavigationOptions: {
         title: "PokédexQL",
         headerStyle: {
-          backgroundColor: "#F4511E"
+          backgroundColor: "#E69138",
         },
         headerTintColor: "#FFFFFF",
         headerTitleStyle: {
-          fontWeight: "bold"
-        }
-      }
-    }
-  )
+          fontWeight: "bold",
+          fontFamily: "Orbitron-Bold",
+          fontWeight: "normal",
+        },
+      },
+    },
+  ),
 );

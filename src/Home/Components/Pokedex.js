@@ -4,14 +4,14 @@ import React from "react";
 import { Text, StyleSheet, RefreshControl, FlatList } from "react-native";
 import { Query } from "react-apollo";
 
-/** Query **/
+/* Query */
 import POKEMON_QUERY from "../Query/HomeQuery";
 
 /* Locals */
 import ListItem from "./ListItem";
 
 type Props = {
-  onPressDetail: Function
+  onPressDetail: Function,
 };
 
 class Pokedex extends React.PureComponent<Props> {
@@ -20,12 +20,11 @@ class Pokedex extends React.PureComponent<Props> {
       <Query
         query={POKEMON_QUERY}
         variables={{
-          first: 5
-        }}
-      >
+          first: 5,
+        }}>
         {({ loading, error, data, fetchMore }) => {
           if (error) {
-            return <Text style={styles.text}>{error}</Text>;
+            return <Text>{error}</Text>;
           }
           return (
             <FlatList
@@ -51,32 +50,32 @@ class Pokedex extends React.PureComponent<Props> {
                   onRefresh={() => {
                     fetchMore({
                       variables: {
-                        first: data.pokemons.length
+                        first: data.pokemons.length,
                       },
                       updateQuery: (previousResult, { fetchMoreResult }) => {
                         const newResults = fetchMoreResult.pokemons;
                         return {
-                          pokemons: [...newResults]
+                          pokemons: [...newResults],
                         };
-                      }
+                      },
                     });
                   }}
                 />
               }
               keyExtractor={(item, index) => index.toString()}
-              style={styles.container}
+              contentContainerStyle={styles.container}
               onEndReachedThreshold={1}
               onEndReached={() => {
                 fetchMore({
                   variables: {
-                    first: data.pokemons.length + 5 // Fetch 5 more items to the initial data
+                    first: data.pokemons.length + 5, // Fetch 5 more items to the initial data
                   },
                   updateQuery: (previousResult, { fetchMoreResult }) => {
                     const newResults = fetchMoreResult.pokemons;
                     return {
-                      pokemons: [...newResults]
+                      pokemons: [...newResults],
                     };
-                  }
+                  },
                 });
               }}
             />
@@ -89,8 +88,8 @@ class Pokedex extends React.PureComponent<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10
-  }
+    padding: 10,
+  },
 });
 
 export default Pokedex;
