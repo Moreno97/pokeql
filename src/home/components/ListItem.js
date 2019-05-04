@@ -22,7 +22,9 @@ const ListItem = (props: Props) => (
       }}
       style={styles.image}>
       <View style={styles.container}>
-        <Headline style={styles.name}>{`#${props.number} ${props.name}`}</Headline>
+        <Headline style={styles.name}>{`#${props.number} ${
+          props.name
+        }`}</Headline>
         <View style={styles.row}>
           {props.types.map((type: string) => (
             <Chip key={type} style={styles.chip} mode="outlined" disabled>

@@ -5,13 +5,14 @@ import { View, StyleSheet, StatusBar } from "react-native";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { ApolloProvider } from "react-apollo";
+import NavigationBar from "react-native-navbar-color";
 
 /* API */
 import CLIENT from "./src/API";
 
 /* UI Components */
-import Pokedex from "./src/Home/Components/Pokedex";
-import Details from "./src/Home/Components/Details";
+import Pokedex from "./src/home/components/Pokedex";
+import Details from "./src/home/components/Details";
 
 type Props = {
   navigation: Object,
@@ -29,6 +30,10 @@ const theme = {
 };
 
 class Home extends React.PureComponent<Props> {
+  componentWillMount() {
+    NavigationBar.setStatusBarTheme("dark", true);
+  }
+
   _onPressDetail = (item: Object) => {
     this.props.navigation.navigate("Detail", { item });
   };

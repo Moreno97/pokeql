@@ -5,7 +5,7 @@ import { Text, StyleSheet, RefreshControl, FlatList } from "react-native";
 import { Query } from "react-apollo";
 
 /* Query */
-import POKEMON_QUERY from "../Query/HomeQuery";
+import POKEMON_QUERY from "../query";
 
 /* Locals */
 import ListItem from "./ListItem";
