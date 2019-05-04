@@ -20,10 +20,12 @@ type Props = {
 
 const theme = {
   ...DefaultTheme,
+  dark: true,
   colors: {
     ...DefaultTheme.colors,
   },
   fonts: {
+    ...DefaultTheme.fonts,
     regular: "Orbitron-Regular",
     medium: "Orbitron-Medium",
   },
