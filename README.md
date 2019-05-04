@@ -1,12 +1,11 @@
-<center>
+<h1 align="center">
+  <img width="20%" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/GraphQL_Logo.svg/2000px-GraphQL_Logo.svg.png"/><br>
+  PokeQL
+</h1>
 
-## PokeQL
-
-</center>
-
-<center>
-    Application developed with React Native to show the power of GraphQL
-</center>
+<h1 align="center">
+  Application developed with React Native to show the power of GraphQL
+</h1>
 
 ## License
 
